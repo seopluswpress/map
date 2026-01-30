@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
+# exit on error
 set -o errexit
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install python dependencies
 pip install -r requirements.txt
-python -m playwright install --with-deps chromium
-chmod +x render-build.sh
+
+# Install Playwright and its system dependencies
+# Note: We use the 'python -m' to ensure it uses the correct environment
+python -m playwright install chromium
